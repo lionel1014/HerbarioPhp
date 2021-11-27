@@ -6,6 +6,18 @@ if ($_SESSION['tipo']!= 2)
     header ('location:iniciosesion.php');
 }
 
+if (isset($_GET['exito'])) {
+    $exito = $_GET['exito'];
+    if ($exito == 1) {
+        echo'<script>alert("Se añadio la especie correctamente!!!");</script>';
+    }
+    $exito = 0;
+}
+if (isset($_GET['exito'])&& $_GET['exito'] == 2) {
+    echo'<script>alert("FAMILIA y especie nuevas agregadas!!!");</script>';
+    $_GET['exito'] = 0;
+}
+
 ?>
 
 
@@ -28,22 +40,28 @@ if ($_SESSION['tipo']!= 2)
                     <u><b><center><h2>Ingrese especie:<h2></center></b>
                         
                         
-                        <form action= "familia.php" method= "POST">           
-        <center><table height="auto">   
-        <tr width= "200">
+        <form action= "familia.php" method= "POST">           
+            <center><table height="auto">   
+            <tr width= "200">
                 <td><center>Seleccione la familia:</center></td>
-                <?php
-                              $sql= "SELECT * from familia";
-                              $result= mysqli_query($conect,$sql);
-                              while($mostrar=mysqli_fetch_array($result)){
-                             ?>  
-                <td><option value="<?php $mostrar ['nombre'];?>"><?php echo $mostrar ['nombre'];?></option>
-                <!--<input type= "radio" name="familia" value= "mochi"> <?php echo $mostrar ['nombre'];?> 
-                --><?php }?></td><br>
-             </tr> 
+                <td>
+                    <select name="familia" id="familia">
+                    <?php
+                        $sql= "SELECT * from familia";
+                        $result= mysqli_query($conect,$sql);
+                        while($mostrar=mysqli_fetch_array($result)){ 
+                        
+                        echo "<option value=".$mostrar['nombre'].">".$mostrar['nombre']."</option>";
+                    
+                        }
+                    ?>
+                    </select>
+                </td>
+                <br>
+            </tr> 
 
              <tr>
-             <td>Si la opcion que busca no se encuentra en el listado, ingreselo a continuacion: </td><td><input type= "text" name= "familia"></td>
+             <td>Si la opción que busca no se encuentra en el listado, ingreselo a continuacion: </td><td><input type="text" name="addFamilia"></td>
             </tr>
 
             <tr width= "200">
@@ -82,14 +100,14 @@ if ($_SESSION['tipo']!= 2)
                 <td><center>Fruto:</center></td>
                 <td><input type= "text" name= "fruto"></td>
             </tr>
-            <tr width= "200">
+            <!-- <tr width= "200">
                 <td><center>Foto del fruto:</center></td>
-                <td><input type= "file" name= "foto_fruto"></td>
+                <td><input type= "file" name="foto_fruto"></td>
             </tr>
             <tr width= "200">
                 <td><center>Foto:</center></td>
-                <td><input type= "file" name= "foto"></td>
-            </tr>
+                <td><input type= "file" name="foto"></td>
+            </tr> -->
             </table> 
             <center><input type="submit" name= "Enviar" value="Aceptar"><br>
             </form>

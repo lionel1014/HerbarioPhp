@@ -41,6 +41,18 @@ ul, ol{
 .nav li ul li {
     position:relative;
 }
+.table{
+    padding: 10px;
+}
+.nickTabla{
+    background-color : #fff;
+
+}
+.alumnosT{
+    margin-top : -13%;
+    margin-bottom : 1rem;
+    
+}
 
 </style>     
 <center><table height="80" width="1330">
@@ -67,45 +79,65 @@ ul, ol{
                 </ul>
                  </td>   
                         <td background= "img/fondo.jpg">
-                        <br><u><b><center><h2>Alumnos Nuevos:<h2></center></b>
-                             <?php
-                              $sql= "SELECT * from cuenta ORDER BY id DESC";
-                              $result= mysqli_query($conect,$sql);
-                              while($mostrar=mysqli_fetch_array($result)){
-                             ?>
+                        <br><u><b><center><h2>Ingresar nuevos A.:<h2></center></b>
+
                              <form action=usuario.php method= "POST">               
-        <br><center><table height="auto">
+        <br><center>
+            <table height="auto">
         <tr width= "500"> 
             <td><center>ID:</center> </td>
-            <td><input name= "id" value= "<?php echo $mostrar ['id'];?>"></td>
+            <td><input name= "id" value= ""></td>
                               </tr>
             <tr width= "200"> 
                 <td><center>Nombre:</center> </td>
-                <td><input type= "text" name= "nombre" value= "<?php echo $mostrar ['nombre'];?>"></td>
+                <td><input type= "text" name= "nombre" value= ""></td>
             </tr>
             <tr width= "200">
                 <td><center>Apellido:</center> </td>
-                <td><input type= "text" name= "apellido" value= "<?php echo $mostrar ['apellido'];?>"></td>
+                <td><input type= "text" name= "apellido" value= ""></td>
             </tr>
             <tr width= "200">
                 <td><center>Condición:</center></td>
-                <td><input name= "condicion" value="<?php echo $mostrar['condicion'];?>">
+                <td><input name= "condicion" value="">
                     </td>
             </tr>
             <tr width= "200">
                 <td><center>Matrícula:</center></td>
-                <td><input type= "number" name= "matricula" value= "<?php echo $mostrar ['matricula'];?>"></td>
+                <td><input type= "number" name= "matricula" value= ""></td>
             </tr>
             </table> 
             <br><center><input type="radio" name="accion" value="1">Ingresar<br>
-            <center><input type="radio" name="accion" value="2">Eliminar<br><br>
-            <center><input type="submit" name= "Aceptar" value= Aceptar><br><br>
-            </form>
-           
-                         <?php }?></center>
-                         <br><center><a href="cerrarsesion.php"><img src= "botones/cerrarsesion.PNG"></a></center><br>
-                    </td></center>
-                </table>  
+            <input type="radio" name="accion" value="2">Eliminar<br><br>
+            <input type="submit" name= "Aceptar" value= Aceptar><br><br>
+            </form>         
+                <td class="table" background= "img/fondo.jpg" width="100%">
+                    <u><h2 class="alumnosT">Alumnos nuevos:</h2></u>
+                    <table class ="nickTabla" border="2" width="90%" height="auto">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Matrícula</th>
+                        </tr>
+                        <?php
+                        
+                            $sql= "SELECT * from cuenta ORDER BY id DESC";
+                            $result= mysqli_query($conect,$sql);
+                            while($mostrar=mysqli_fetch_array($result)){
+                            ?><tr>
+                                <td><?php echo $mostrar['id'];?></td>
+                                <td><?php echo $mostrar['nombre'];?></td>
+                                <td><?php echo $mostrar['apellido'];?></td>
+                                <td><?php echo $mostrar['matricula'];?></td>
+                            </tr>
+                            <?php
+                            }
+                        ?>
+                    </table>
+                </td>
+            </td>   
+            </table>
+                 <br><center><a href="cerrarsesion.php"><img src= "botones/cerrarsesion.PNG"></a></center><br>
         </address>
                 <table width="1359">
                     
