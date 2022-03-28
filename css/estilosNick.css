@@ -1,0 +1,70 @@
+.bfamilias {
+    padding: 10px 20px 10px 20px;
+    margin-right: 1%;
+    font-family: Verdana, Tahoma, sans-serif;
+    background: linear-gradient(90deg, #b5e7c1, rgb(146, 158, 224));
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 5px 10px 6px 0px rgba(32, 129, 136, 0.61);
+    -webkit-box-shadow: 5px 10px 6px 0px rgba(32, 129, 136, 0.61);
+    -moz-box-shadow: 5px 10px 6px 0px rgba(32, 129, 136, 0.61);
+}
+#bvolver {
+    position: relative;
+    top: -80px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 1%;
+    font-family: Verdana, Tahoma, sans-serif;
+    background: linear-gradient(90deg, #b5e7c1, rgb(146, 158, 224));
+    border-radius: 10px;
+    box-shadow: 5px 10px 6px 0px rgba(32, 129, 136, 0.61);
+    -webkit-box-shadow: 5px 10px 6px 0px rgba(32, 129, 136, 0.61);
+    -moz-box-shadow: 5px 10px 6px 0px rgba(32, 129, 136, 0.61);
+}
+#bvolver:hover {
+    background: linear-gradient(90deg, #06eb3b, rgb(70, 96, 243));
+}
+
+.bvolver {
+    position: relative;
+    top: -10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 1%;
+    font-family: Verdana, Tahoma, sans-serif;
+    background: linear-gradient(90deg, #b5e7c1, rgb(146, 158, 224));
+    border-radius: 10px;
+    box-shadow: 5px 10px 6px 0px rgba(32, 129, 136, 0.61);
+    -webkit-box-shadow: 5px 10px 6px 0px rgba(32, 129, 136, 0.61);
+    -moz-box-shadow: 5px 10px 6px 0px rgba(32, 129, 136, 0.61);
+}
+.bvolver2:hover {
+    background: linear-gradient(90deg, #06eb3b, rgb(70, 96, 243));
+}
+
+.bvolverDefault {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 1%;
+    font-family: Verdana, Tahoma, sans-serif;
+    background: linear-gradient(90deg, #b5e7c1, rgb(146, 158, 224));
+    border-radius: 10px;
+    box-shadow: 5px 10px 6px 0px rgba(32, 129, 136, 0.61);
+    -webkit-box-shadow: 5px 10px 6px 0px rgba(32, 129, 136, 0.61);
+    -moz-box-shadow: 5px 10px 6px 0px rgba(32, 129, 136, 0.61);
+}
+.bvolverDefault:hover {
+    background: linear-gradient(90deg, #06eb3b, rgb(70, 96, 243));
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    /* margin-left: 50%;
+    margin-right: 50%; */
+}
+
+#form {
+    margin: 20px 0 0 30%;
+}

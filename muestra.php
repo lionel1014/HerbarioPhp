@@ -1,12 +1,14 @@
 <html>
-<head>      
-<center><table height="80" width="1330">
+<head>
+    <link rel="stylesheet" href="libr\bootstrap\css\bootstrap.css">
+    <link rel="stylesheet" href="css/estilosNick.css">
+</head>
+        <center><table height="80" width="1330">
         <td width="170"><center><p><img src="img/logo.PNG"
             alt="logo" title="Bioestadística 2" width=100 height=100></td>
         <td><center><p><img src="img/portada.png"
             alt="portada" width=850 height=100></td>
         </table></center>
-        </head>    
         <body bgcolor= "F0FFF2">
                 <table height="350" width="1350" border="0">
                     <td height="350" width="175" bgcolor= "A0D9D3"><center>
@@ -14,8 +16,27 @@
                         <img src= "botones/glosarioenc.PNG"><br><br>
                         <a href="ingresarespecie.php"><img src= "botones/ingresarespecie.PNG"></a></td>      
                         <td background= "img/fondo.jpg">
+                            <nav class="volver">
+                                <button class="bvolver" >
+                                    <a href="<?php echo $_SERVER["HTTP_REFERER"]?>">Volver</a>
+                                </button>
+                            </nav>
                         <br><b><center><h2>Listado:<h2></center></b>
-                        
+                        <table class="table table-light table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Familia</th>
+                                    <th scope="col">Reino</th>
+                                    <th scope="col">Especie</th>
+                                    <th scope="col">Género</th>
+                                    <th scope="col">Clase</th>
+                                    <th scope="col">Orden</th>
+                                    <th scope="col">División</th>
+                                    <th scope="col">Nombre vulgar</th>
+                                    <th scope="col">Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                             <?php
                              include 'conexion.php';
 
@@ -27,7 +48,7 @@
                                 //  echo $sql;
                                 $result= mysqli_query($conect,$sql);
                                 if ($result) {
-                                    # code...
+                                
                                 
                                 // if ($result) {
                                 //     var_dump($result);
@@ -42,62 +63,30 @@
                                 // echo $cant;
                                 $row= mysqli_fetch_array($result);
                                 // var_dump($row);
-                                for($i=1; $i <= $cant; $i++){
-                                    $familia = $row['familia'];
-                                ?>
-                                <br><center>
-                                    <table height="auto">
-                                        <form action="">
-                                        <tr width= "200"> 
-                                    <td><center>Familia:</center> </td>
-                                    <td><input type="text" name="fam" value= "<?php echo $row['familia'];?>"></td>
-                                                    </tr>
-                                
-                                                    <tr width= "200"> 
-                                    <td><center>Reino:</center> </td>
-                                    <td><input name= "reino" value= "<?php echo $row['reino'];?>"></td>
-                                                    </tr>
-                                                    <tr width= "200"> 
-                                    <td><center>Especie:</center> </td>
-                                    <td><input name= "especie" value= "<?php echo $row['especie'];?>"></td>
-                                                    </tr>
-                                                    <tr width= "200"> 
-                                    <td><center>Género:</center> </td>
-                                    <td><input name= "genero" value= "<?php echo $row['genero'];?>"></td>
-                                                    </tr>
-                                                    <tr width= "200"> 
-                                    <td><center>Clase:</center> </td>
-                                    <td><input name= "clase" value= "<?php echo $row['clase'];?>"></td>
-                                                    </tr>
-                                                    <tr width= "200"> 
-                                    <td><center>Orden:</center> </td>
-                                    <td><input name= "orden" value= "<?php echo $row['orden'];?>"></td>
-                                                    </tr>
-                                                    <tr width= "200"> 
-                                    <td><center>División:</center> </td>
-                                    <td><input name= "division" value= "<?php echo $row['division'];?>"></td>
-                                                    </tr>
-                                                    <tr width= "200"> 
-                                    <td><center>Nombre Vulgar:</center> </td>
-                                    <td><input name= "nombre_vulgar" value= "<?php echo $row['nombre_vulgar'];?>"></td>
-                                                    </tr>
-                                                    <tr width= "200"> 
-                                    <td><center>Descripción:</center> </td>
-                                    <td><input name= "descripcion" value= "<?php echo $row['descripcion'];?>"></td>
-                                                    </tr>
-                                                    <tr width= "200"> 
-                                    <td><center>Fruto:</center> </td>
-                                    <td><input name= "fruto" value= "<?php echo $row['fruto'];?>"></td>
-                                                    </tr>
-                                    </form>
-                                    </table> <?php
+                                    for($i=1; $i <= $cant; $i++){
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $row['familia']; ?></td>
+                                            <td><?php echo $row['reino']; ?></td>
+                                            <td><?php echo $row['especie']; ?></td>
+                                            <td><?php echo $row['genero']; ?></td>
+                                            <td><?php echo $row['clase']; ?></td>
+                                            <td><?php echo $row['orden']; ?></td>
+                                            <td><?php echo $row['division']; ?></td>
+                                            <td><?php echo $row['nombre_vulgar']; ?></td>
+                                            <td><?php echo $row['descripcion']; ?></td>
+                                        </tr>
+                                        <?php
                                     }
                                 }
                             }else{
                                 header('location:glosario.php');
                             }
                             // mysql_free_result($result);
-                            ?></center> 
+                            ?>
+                            </tbody>
+                        </table>
+                        </center> 
                            
 
 

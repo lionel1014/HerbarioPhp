@@ -22,14 +22,16 @@ if (isset($_GET['exito'])&& $_GET['exito'] == 2) {
 
 
 <html>
-<head>      
-<center><table height="80" width="1330">
+<head>
+    <link rel="stylesheet" href="libr\bootstrap\css\bootstrap.css">
+    <link rel="stylesheet" href="css/estilosNick.css">
+</head>
+        <center><table height="80" width="1330">
         <td width="170"><center><p><img src="img/logo.PNG"
             alt="logo" title="Bioestadística 2" width=100 height=100></td>
         <td><center><p><img src="img/portada.png"
             alt="portada" width=850 height=100></td>
         </table></center>
-        </head>    
         <body bgcolor= "F0FFF2">
                 <table height="350" width="1350" border="0">
                     <td height="350" width="175" bgcolor= "A0D9D3"><center>
@@ -40,7 +42,7 @@ if (isset($_GET['exito'])&& $_GET['exito'] == 2) {
                     <u><b><center><h2>Ingrese especie:<h2></center></b>
                         
                         
-        <form action= "familia.php" method= "POST">           
+        <form class="formulario" action= "familia.php" method= "POST">           
             <center><table height="auto">   
             <tr width= "200">
                 <td><center>Seleccione la familia:</center></td>

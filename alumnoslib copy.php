@@ -11,9 +11,7 @@ if ($_SESSION['tipo']!= 1)
 
 <html>
 <head>  
-<title>Alumnos Libres</title>
-    <link rel="stylesheet" href="libr\bootstrap\css\bootstrap.css">
-    <link rel="stylesheet" href="css/estilosNick.css">
+<title>Alumnos Libres</title> 
 <style type="text/css">
 *{
     padding:0px;
@@ -43,12 +41,7 @@ ul, ol{
 .nav li ul li {
     position:relative;
 }
-.nickTabla{
-    background-color : #fff;
-}
-#titulo{
-    /* margin-top: -13%; */
-}
+
 </style> 
 
 <center><table height="80" width="1330">
@@ -59,7 +52,7 @@ ul, ol{
         </table></center>
         </head>    
         <body bgcolor= "F0FFF2">
-                <table  height="70%" border="0">
+                <table  height="auto" border="0">
                     <td width="175" bgcolor= "A0D9D3"><center>
                             <a href="indexadmin.php"><img src= "botones/inicio.PNG"></a><br><br>
                             <a href="glosario.php"><img src= "botones/glosario.PNG"></a><br><br>
@@ -74,29 +67,32 @@ ul, ol{
                 <li><a href="alumnosnue.php"><img src="botones/nuevos.PNG"></a></li>
                 </ul>
                 </td>
-                <td background= "img/fondo.jpg" width="100%">
-                <br><u><b><center><h2 id="titulo" >Alumnos Libres:<h2></center></b>
-                <br>
-                <table class="table table-danger table-hover" width="90%">
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Matrícula</th>
-                    </tr>
-                    
+                <td background= "img/fondo.jpg">
+                <br><u><b><center><h2>Alumnos Libres:<h2></center></b>
                              <?php
                               $sql= "SELECT * from usuario WHERE tipo!=1 AND condicion!=1";
-                              $result = mysqli_query($conect,$sql);
-                              while($mostrar=mysqli_fetch_array($result)){?>            
-                            <tr border="0">
-                                    <td><?php echo $mostrar['id'];?></td>
-                                    <td><?php echo $mostrar['nombre'];?></td>
-                                    <td><?php echo $mostrar['apellido'];?></td>
-                                    <td><?php echo $mostrar['matricula'];?></td>
-                                    
-                                <?php 
-                            }?></tr></table>
+                              $result= mysqli_query($conect,$sql);
+                              while($mostrar=mysqli_fetch_array($result)){
+                             ?>            
+        <br><center><table height="auto">
+        <tr width= "500"> 
+            <td><center>ID:</center> </td>
+            <td><input name= "id" value= "<?php echo $mostrar ['id'];?>"></td>
+                              </tr>
+            <tr width= "200"> 
+                <td><center>Nombre:</center> </td>
+                <td><input type= "text" name= "nombre" value= "<?php echo $mostrar ['nombre'];?>"></td>
+            </tr>
+            <tr width= "200">
+                <td><center>Apellido:</center> </td>
+                <td><input type= "text" name= "apellido" value= "<?php echo $mostrar ['apellido'];?>"></td>
+            </tr>
+            <tr width= "200">
+                <td><center>Matrícula:</center></td>
+                <td><input type= "number" name= "matricula" value= "<?php echo $mostrar ['matricula'];?>"></td>
+            </tr>
+            </table> 
+                         <?php }?></center>
                          <br><center><a href="cerrarsesion.php"><img src= "botones/cerrarsesion.PNG"></a></center><br>
                     </td></center>
                 </table>  

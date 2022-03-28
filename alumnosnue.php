@@ -11,7 +11,9 @@ if ($_SESSION['tipo']!= 1)
 
 <html>
 <head>
-<title>Alumnos Nuevos</title> 
+<title>Alumnos Nuevos</title>
+    <link rel="stylesheet" href="libr\bootstrap\css\bootstrap.css">
+    <link rel="stylesheet" href="css/estilosNick.css">
 <style type="text/css">
 *{
     padding:0px;
@@ -49,7 +51,7 @@ ul, ol{
 
 }
 .alumnosT{
-    margin-top : -13%;
+    /* margin-top : -13%; */
     margin-bottom : 1rem;
     
 }
@@ -81,13 +83,13 @@ ul, ol{
                         <td background= "img/fondo.jpg">
                         <br><u><b><center><h2>Ingresar nuevos A.:<h2></center></b>
 
-                             <form action=usuario.php method= "POST">               
+            <form action=usuario.php method= "POST">               
         <br><center>
             <table height="auto">
-        <tr width= "500"> 
+                <!-- <tr width= "500"> 
             <td><center>ID:</center> </td>
             <td><input name= "id" value= ""></td>
-                              </tr>
+            </tr> -->
             <tr width= "200"> 
                 <td><center>Nombre:</center> </td>
                 <td><input type= "text" name= "nombre" value= ""></td>
@@ -98,21 +100,25 @@ ul, ol{
             </tr>
             <tr width= "200">
                 <td><center>Condición:</center></td>
-                <td><input name= "condicion" value="">
-                    </td>
+                <td>
+                    <select name="condicion" class="custom-select" id="inputGroupSelect01">
+                        <option value="1">Regular</option>
+                        <option value="2">Libre</option>
+                    </select>
+                </td>
             </tr>
             <tr width= "200">
                 <td><center>Matrícula:</center></td>
                 <td><input type= "number" name= "matricula" value= ""></td>
             </tr>
             </table> 
-            <br><center><input type="radio" name="accion" value="1">Ingresar<br>
-            <input type="radio" name="accion" value="2">Eliminar<br><br>
-            <input type="submit" name= "Aceptar" value= Aceptar><br><br>
+            <br><br>
+            <br><br>
+            <input type="submit" name= "Aceptar" value="Ingresar"><br><br>
             </form>         
                 <td class="table" background= "img/fondo.jpg" width="100%">
                     <u><h2 class="alumnosT">Alumnos nuevos:</h2></u>
-                    <table class ="nickTabla" border="2" width="90%" height="auto">
+                    <table class="table table-warning table-hover" width="90%">
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
